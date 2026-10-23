@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rivandi Ramadhan | Portofolio</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    :root {
+      --mist: #e6f0ed;
+      --deep: #0e3b3d;
+      --river: #2c7da0;
+      --sun: #f4a93b;
+      --white: #ffffff;
+      --text: #1d3436;
+      --radius: 28px;
+    }
+
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+
+    body {
+      background: var(--mist);
+      color: var(--text);
+      font-family: "Public Sans", system-ui, sans-serif;
+      line-height: 1.7;
+    }
+    h1, h2, h3, .brand { font-family: "Bricolage Grotesque", system-ui, sans-serif; color: var(--deep); }
+    :focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
+
+    /* Navbar melayang */
+    .nav-wrap { position: sticky; top: 0; z-index: 10; padding: 1rem 0; }
+    .nav-pill {
+      background: var(--deep);
+      border-radius: 999px;
+      padding: .6rem .8rem .6rem 1.6rem;
+    }
+    .brand { color: var(--white); font-weight: 800; font-size: 1.25rem; text-decoration: none; letter-spacing: -.02em; }
+    .brand:hover { color: var(--sun); }
+    .nav-pill .nav-link { color: #cfe3de; padding: .5rem 1.1rem; border-radius: 999px; }
+    .nav-pill .nav-link:hover { background: rgba(255,255,255,.12); color: #fff; }
+    .nav-pill .nav-cta { background: var(--sun); color: var(--deep); font-weight: 500; }
+    .nav-pill .nav-cta:hover { background: #ffc15e; color: var(--deep); }
+    .navbar-toggler { border-color: rgba(255,255,255,.4); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+
+      .nav-pill .nav-link {
+      border-radius: 999px;
+      padding: .55rem 1.1rem;
+      transition: background-color .3s ease, color .3s ease;
+    }
+
+    .nav-pill .nav-link.active {
+      background: #f5a83a;   /* pakai warna kuning yang sama dengan sebelumnya */
+      color: #0f3d3e;
+      font-weight: 600;
+    }
+
+html { scroll-behavior: smooth; }
+section, header { scroll-margin-top: 100px; }
+
+    .hero { position: relative; padding: 4rem 0 6rem; overflow: hidden; }
+    .contour { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; opacity: .5; pointer-events: none; }
+    .hero .container { position: relative; z-index: 1; }
+
+    .hero h1 {
+      font-weight: 800;
+      font-size: clamp(2.8rem, 6.5vw, 5.2rem);
+      line-height: .98;
+      letter-spacing: -.045em;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 span { display: block; color: var(--river); }
+    .hero .lead-text { font-size: 1.1rem; max-width: 32rem; margin-bottom: 2rem; }
+
+    .btn-main, .btn-ghost {
+      border-radius: 999px;
+      padding: .85rem 1.9rem;
+      font-weight: 500;
+      border: 2px solid var(--deep);
+      transition: background .2s, color .2s;
+    }
+    .btn-main { background: var(--deep); color: #fff; }
+    .btn-main:hover { background: var(--river); border-color: var(--river); color: #fff; }
+    .btn-ghost { background: transparent; color: var(--deep); }
+    .btn-ghost:hover { background: var(--deep); color: #fff; }
+
+    .arch-wrap { position: relative; max-width: 420px; margin-inline: auto; }
+    .arch {
+      aspect-ratio: 3 / 4;
+      border-radius: 999px 999px var(--radius) var(--radius);
+      overflow: hidden;
+      background: var(--river);
+      border: 10px solid var(--white);
+      box-shadow: 0 24px 50px -20px rgba(14,59,61,.5);
+    }
+    .arch img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .badge-float {
+      position: absolute;
+      left: -2rem; bottom: 2.5rem;
+      background: var(--sun);
+      color: var(--deep);
+      font-weight: 500;
+      padding: .9rem 1.3rem;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px -10px rgba(14,59,61,.45);
+      line-height: 1.3;
+    }
+    .badge-float b { display: block; font-family: "Bricolage Grotesque", sans-serif; font-size: 1.15rem; }
+
+    section.block { padding: 4.5rem 0; }
+    section.block h2 { font-weight: 800; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -.035em; margin-bottom: 1.5rem; }
+    .panel { background: var(--deep); color: #d5e6e1; border-radius: var(--radius); padding: clamp(2rem, 5vw, 4rem); }
+    .panel h2 { color: #fff; }
+
+    .skill {
+      display: inline-block;
+      background: #fff;
+      color: var(--deep);
+      border-radius: 999px;
+      padding: .5rem 1.3rem;
+      margin: 0 .5rem .7rem 0;
+      font-weight: 500;
+    }
+    .skill:nth-child(odd) { background: var(--sun); }
+
+    .card-p {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      height: 100%;
+      border-bottom: 8px solid var(--river);
+    }
+    .card-p:nth-child(even), .col-md-4:nth-child(2) .card-p { border-color: var(--sun); }
+    .card-p h3 { font-size: 1.3rem; font-weight: 700; }
+
+    footer { padding: 2rem 0 3rem; text-align: center; font-size: .95rem; }
+
+    @media (max-width: 991px) {
+      .hero { padding: 2rem 0 4rem; }
+      .badge-float { left: .5rem; }
+      .nav-pill { border-radius: 28px; }
+    }
+  </style>
+</head>
+<body data-bs-spy="scroll"
+      data-bs-target="#menu"
+      data-bs-root-margin="-40% 0px -55% 0px"
+      data-bs-smooth-scroll="true"
+      tabindex="0">
+
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="navbar navbar-expand-md nav-pill">
+      <a class="brand" href="#top">Rivandi Ramadhan</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Buka menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="menu">
+        <ul class="navbar-nav align-items-md-center">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <svg class="contour" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g fill="none" stroke="#9cc3bb" stroke-width="1.5">
+      <path d="M-50 520 C 200 420, 380 640, 640 540 S 1050 400, 1250 500"/>
+      <path d="M-50 470 C 200 370, 380 590, 640 490 S 1050 350, 1250 450"/>
+      <path d="M-50 420 C 200 320, 380 540, 640 440 S 1050 300, 1250 400"/>
+      <path d="M-50 370 C 200 270, 380 490, 640 390 S 1050 250, 1250 350"/>
+      <path d="M-50 320 C 200 220, 380 440, 640 340 S 1050 200, 1250 300"/>
+      <path d="M-50 270 C 200 170, 380 390, 640 290 S 1050 150, 1250 250"/>
+      <path d="M-50 220 C 200 120, 380 340, 640 240 S 1050 100, 1250 200"/>
+    </g>
+  </svg>
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+          <h1>Halo, saya Rivandi<span>Ramadhan.</span></h1>
+          <p class="lead-text">
+            Mahasiswa Teknik Lingkungan UPN "Veteran" Jawa Timur yang tertarik pada teknologi informasi.
+            Saat SMA, saya mengikuti program Prodistik dari ITS yang berfokus pada pengembangan
+            Teknologi Informasi dan Komunikasi.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#projects" class="btn btn-main">Lihat proyek</a>
+            <a href="#contact" class="btn btn-ghost">Hubungi saya</a>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="arch-wrap">
+            <div class="arch">
+              <img src="img/foto.jpg" alt="Foto Rivandi Ramadhan">
+            </div>
+            <div class="badge-float"><b>Teknik Lingkungan</b>UPN "Veteran" Jatim</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="block" id="about">
+    <div class="container">
+      <div class="panel">
+        <h2>Tentang saya</h2>
+        <p class="col-lg-8 px-0 mb-0">
+          Saya memiliki latar belakang pada bidang teknologi informasi dan komunikasi, dan juga memiliki pengalaman dalam fotografi dan videografi. Saya memiliki kemampuan dalam pengembangan website menggunakan HTML, CSS, Bootstrap, dan JavaScript.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block pt-0" id="skills">
+    <div class="container">
+      <h2>Keahlian</h2>
+      <span class="skill">HTML</span><span class="skill">CSS</span><span class="skill">Bootstrap</span>
+      <span class="skill">JavaScript</span><span class="skill">Git</span><span class="skill">Photograpy</span><span class="skill">VideoGraphic</span>
+    </div>
+  </section>
+
+  <section class="block pt-0" id="projects">
+    <div class="container">
+      <h2>Proyek</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card-p">
+            <img src="img/p1.png" alt="Publication of decoration documentation from making the school batch video" class="img-fluid mb-3">
+            <h3>Publication of decoration documentation from making the school batch video</h3>
+            <p class="mb-0">Publication of decoration documentation in the making of video content for the class of SMA Muhammadiyah 1 Gresik 2026 in the making of video content for the class of SMA Muhammadiyah 1 Gresik 2026.</p>
+            <a href="https://www.instagram.com/reel/DY4HhIfT2Iv/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" class="btn btn-main mt-3 d-table mx-auto">Lihat proyek</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-p">
+            <img src="img/p2.png" alt="Asisten Director of Photography SMA AWARDS 2024" class="img-fluid mb-3">
+            <h3>Asisten Director of Photography SMA AWARDS 2024</h3>
+            <p class="mb-0">Asisten Director of Photography (DOP) making a video for the SMA Awards 2024 competition.</p>
+            <a href="https://youtu.be/PtX6qbeLQkY?si=0iBsJp9Gl3Q_Hoy1" target="_blank" rel="noopener noreferrer" class="btn btn-main mt-3 d-table mx-auto">Lihat proyek</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-p">
+            <img src="img/p3.png" alt="Director of Photography SMA AWARDS 2025" class="img-fluid mb-3">
+            <h3>Director of Photography SMA AWARDS 2025</h3>
+            <p class="mb-0">Director of Photography (DOP) making a video for the SMA Awards 2025 competition.</p>
+            <a href="https://youtu.be/-tRRjkCYAHA?si=ThguaJhx1ix_5KN3" target="_blank" rel="noopener noreferrer" class="btn btn-main mt-3 d-table mx-auto">Lihat proyek</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-p">
+            <img src="img/p7.png" alt="Mini Website For Pancasila Student Profile Strengthening Project" class="img-fluid mb-3">
+            <h3>Mini Website For Pancasila Student Profile Strengthening Project</h3>
+            <p class="mb-0">Mini Website For Pancasila Student Profile Strengthening Project.</p>
+            <a href="https://prodistik1.github.io/p5/web%20p5.html" target="_blank" rel="noopener noreferrer" class="btn btn-main mt-3 d-table mx-auto">Lihat proyek</a>
+          </div>
+        </div>
+          <div class="col-md-4">
+            <div class="card-p">
+              <img src="img/p5.png" alt="Proyek 5" class="img-fluid mb-3">
+              <h3>Proyek kelima</h3>
+              <p class="mb-0">Mini Website for Finale Project From PRODISTIK ITS </p>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-main mt-3 d-table mx-auto">Lihat proyek</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card-p">
+              <img src="img/p6.jpeg" alt="Proyek 6" class="img-fluid mb-3 d-block mx-auto" width="100px" height="100px">
+              <h3>The media team from Muhammadiyah 1 High School Gresik</h3>
+              <p class="mb-0">The media team from Muhammadiyah 1 High School Gresik 2024</p>
+              <a href="https://www.instagram.com/reels/C8tvPgMpWWJ/" target="_blank" rel="noopener noreferrer" class="btn btn-main mt-3 d-table mx-auto">Lihat proyek</a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block pt-0" id="contact">
+    <div class="container">
+      <div class="panel text-center">
+        <h2>Ayo berkolaborasi</h2>
+        <p>Punya ide atau proyek? Kirim pesan lewat email.</p>
+        <a href="https://mail.google.com/mail/?view=cm&to=rivandiramadhan09@gmail.com" target="_blank" rel="noopener noreferrer"class="btn btn-main" style="background: var(--sun); border-color: var(--sun); color: var(--deep);">Kirim email</a>
+        <h2>Instagram</h2>
+        <p>Lets contact in Instagram</p>
+        <a href="https://www.instagram.com/rvndira_/" target="_blank" rel="noopener noreferrer" class="btn btn-main" style="background: var(--sun); border-color: var(--sun); color: var(--deep);"> Contact at Instagram</a>
+        <h2>LinkedIn</h2>
+        <p>Connect with me on LinkedIn</p>
+        <a href="https://www.linkedin.com/in/Rivandi-Ramadhan/" target="_blank" rel="noopener noreferrer" class="btn btn-main" style="background: var(--sun); border-color: var(--sun); color: var(--deep);">Contact at LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
